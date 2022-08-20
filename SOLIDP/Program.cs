@@ -25,7 +25,7 @@ namespace SOLIDP
             var cost = CalculateTripPost(mercedes);
             Console.WriteLine(cost.ToString());
 
-            //RunCar();
+            RunCar();
         }
 
         private static double CalculateTripPost(BaseCar car)
@@ -34,7 +34,7 @@ namespace SOLIDP
             return calculate.Calculate(car);
         }
 
-        public void RunCar()
+        public static void RunCar()
         {
             try
             {
