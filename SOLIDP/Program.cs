@@ -1,4 +1,5 @@
 ﻿using System;
+using static SOLIDP.CustomException;
 
 namespace SOLIDP
 {
@@ -16,15 +17,45 @@ namespace SOLIDP
 
             Toyota toyota = new Toyota();
             toyota.SendTripInfoEmailToDriver(driver);
-            toyota.SendTripInfoSMSToDriver(driver);
+            //toyota.SendTripInfoSMSToDriver(driver);
 
             //BaseCar baseCar = new BaseCar();
             //Bunu yapmaya izin vermiyoruz.
 
-            var calculate = new FuelCostCalculator();
-            var cost = calculate.Calculate(mercedes);
-
+            var cost = CalculateTripPost(mercedes);
             Console.WriteLine(cost.ToString());
+
+            RunCar();
+        }
+
+        private static double CalculateTripPost(BaseCar car)
+        {
+            var calculate = new FuelCostCalculator();
+            return calculate.Calculate(car);
+        }
+
+        public void RunCar()
+        {
+            try
+            {
+                var mercedes = new Mercedes();
+                mercedes.Run();
+                mercedes.Stop();
+                mercedes.SendTripInfoEmailToDriver(new DriverInfo());
+            }
+            catch (EngineException ex)
+            {
+                //new TripInfoLogger().LogToIstanbul(ex.Message);
+
+                new TripInfoLogger(new IstanbulLogger()).Log(ex.Message);
+                new TripInfoLogger(new AnkaraLogger()).Log(ex.Message);
+               
+            }
+            catch (AirPressureException ex)
+            {
+                //new TripInfoLogger().LogToLocal(ex.Message);
+                new TripInfoLogger(new LocalLogger()).Log(ex.Message);
+            }
         }
     }
 }
