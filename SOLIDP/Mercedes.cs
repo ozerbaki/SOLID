@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SOLIDP
 {
-    public class Mercedes : BaseCar, IEmailSendable, ISMSSendable
+    public class Mercedes : BaseCar, IEmailSendable, ISMSSendable, IMultipleEmailSendable
     {
         public override double GetPerCostKm()
         {
@@ -14,6 +14,11 @@ namespace SOLIDP
         }
 
         public void SendTripInfoEmailToDriver(DriverInfo driver)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SendTripInfoEmailToDrivers(List<DriverInfo> drivers)
         {
             throw new NotImplementedException();
         }

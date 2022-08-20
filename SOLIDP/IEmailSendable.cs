@@ -9,5 +9,6 @@ namespace SOLIDP
     public interface IEmailSendable
     {
         public void SendTripInfoEmailToDriver(DriverInfo driver);
+        //public void SendTripInfoEmailToDrivers(List<DriverInfo> drivers);
     }
 }
