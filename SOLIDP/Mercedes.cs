@@ -6,11 +6,21 @@ using System.Threading.Tasks;
 
 namespace SOLIDP
 {
-    public class Mercedes : BaseCar
+    public class Mercedes : BaseCar, IEmailSendable, ISMSSendable
     {
         public override double GetPerCostKm()
         {
             return 2;
+        }
+
+        public void SendTripInfoEmailToDriver(DriverInfo driver)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SendTripInfoSMSToDriver(DriverInfo driver)
+        {
+            throw new NotImplementedException();
         }
     }
 }

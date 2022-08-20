@@ -30,20 +30,20 @@ namespace SOLIDP
         #endregion
 
         #region S is single responsibility principle (SRP)
-        public void SendTripInfoEmailToDriver(DriverInfo driver)
-        {
-            if (!string.IsNullOrEmpty(driver.Email)) //Driver'ın Email bilgisi boş değilse
-            {
-                //Send Mail
-            }
-        }
-        public void SendTripInfoSMSToDriver(DriverInfo driver)
-        {
-            if (!string.IsNullOrEmpty(driver.PhoneNumber)) //Driver'ın Email bilgisi boş değilse
-            {
-                //Send SMS
-            }
-        }
+        //public void SendTripInfoEmailToDriver(DriverInfo driver)
+        //{
+        //    if (!string.IsNullOrEmpty(driver.Email)) //Driver'ın Email bilgisi boş değilse
+        //    {
+        //        //Send Mail
+        //    }
+        //}
+        //public void SendTripInfoSMSToDriver(DriverInfo driver)
+        //{
+        //    if (!string.IsNullOrEmpty(driver.PhoneNumber)) //Driver'ın Email bilgisi boş değilse
+        //    {
+        //        //Send SMS
+        //    }
+        //}
         #endregion
 
 
